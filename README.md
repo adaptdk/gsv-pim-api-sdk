@@ -1,9 +1,9 @@
-# :package_description
+# Package to make it easy to interact with the pim-api, includes api endpoints build ontop of Laravels PendingRequest and a webhook
 
-[![Latest Version on Packagist](https://img.shields.io/packagist/v/:vendor_slug/:package_slug.svg?style=flat-square)](https://packagist.org/packages/:vendor_slug/:package_slug)
-[![GitHub Tests Action Status](https://img.shields.io/github/workflow/status/:vendor_slug/:package_slug/run-tests?label=tests)](https://github.com/:vendor_slug/:package_slug/actions?query=workflow%3ATests+branch%3Amaster)
-[![GitHub Code Style Action Status](https://img.shields.io/github/workflow/status/:vendor_slug/:package_slug/Check%20&%20fix%20styling?label=code%20style)](https://github.com/:vendor_slug/:package_slug/actions?query=workflow%3A"Check+%26+fix+styling"+branch%3Amaster)
-[![Total Downloads](https://img.shields.io/packagist/dt/:vendor_slug/:package_slug.svg?style=flat-square)](https://packagist.org/packages/:vendor_slug/:package_slug)
+[![Latest Version on Packagist](https://img.shields.io/packagist/v/adaptdk/gsv-pim-api-sdk.svg?style=flat-square)](https://packagist.org/packages/adaptdk/gsv-pim-api-sdk)
+[![GitHub Tests Action Status](https://img.shields.io/github/workflow/status/adaptdk/gsv-pim-api-sdk/run-tests?label=tests)](https://github.com/adaptdk/gsv-pim-api-sdk/actions?query=workflow%3ATests+branch%3Amaster)
+[![GitHub Code Style Action Status](https://img.shields.io/github/workflow/status/adaptdk/gsv-pim-api-sdk/Check%20&%20fix%20styling?label=code%20style)](https://github.com/adaptdk/gsv-pim-api-sdk/actions?query=workflow%3A"Check+%26+fix+styling"+branch%3Amaster)
+[![Total Downloads](https://img.shields.io/packagist/dt/adaptdk/gsv-pim-api-sdk.svg?style=flat-square)](https://packagist.org/packages/adaptdk/gsv-pim-api-sdk)
 
 ---
 This package can be used as to scaffold a framework agnostic package. Follow these steps to get started:
@@ -18,7 +18,7 @@ This is where your description should go. Try and limit it to a paragraph or two
 
 ## Support us
 
-[<img src="https://github-ads.s3.eu-central-1.amazonaws.com/:package_name.jpg?t=1" width="419px" />](https://spatie.be/github-ad-click/:package_name)
+[<img src="https://github-ads.s3.eu-central-1.amazonaws.com/gsv-pim-api-sdk.jpg?t=1" width="419px" />](https://spatie.be/github-ad-click/gsv-pim-api-sdk)
 
 We invest a lot of resources into creating [best in class open source packages](https://spatie.be/open-source). You can support us by [buying one of our paid products](https://spatie.be/open-source/support-us).
 
@@ -29,14 +29,14 @@ We highly appreciate you sending us a postcard from your hometown, mentioning wh
 You can install the package via composer:
 
 ```bash
-composer require :vendor_slug/:package_slug
+composer require adapt/gsv-pim-api-sdk
 ```
 
 ## Usage
 
 ```php
-$skeleton = new VendorName\Skeleton();
-echo $skeleton->echoPhrase('Hello, VendorName!');
+$skeleton = new Adapt\PimApi();
+echo $skeleton->echoPhrase('Hello, Adapt!');
 ```
 
 ## Testing
@@ -59,7 +59,7 @@ Please review [our security policy](../../security/policy) on how to report secu
 
 ## Credits
 
-- [:author_name](https://github.com/:author_username)
+- [Amir Khan](https://github.com/TheLifeOfo)
 - [All Contributors](../../contributors)
 
 ## License

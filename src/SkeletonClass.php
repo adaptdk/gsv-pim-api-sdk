@@ -1,7 +1,7 @@
 <?php
 
-namespace VendorName\Skeleton;
+namespace Adapt\PimApi;
 
-class SkeletonClass
+class PimApiClass
 {
 }

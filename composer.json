@@ -1,21 +1,22 @@
 {
-    "name": ":vendor_slug/:package_slug",
-    "description": ":package_description",
+    "name": "adaptdk/gsv-pim-api-sdk",
+    "description": "Package to make it easy to interact with the pim-api, includes api endpoints build on top of Laravel's PendingRequest and a webhook",
     "keywords": [
-        ":vendor_name",
-        ":package_slug"
+        "TheLifeOfo",
+        "gsv-pim-api-sdk"
     ],
-    "homepage": "https://github.com/:vendor_slug/:package_slug",
+    "homepage": "https://github.com/adaptdk/gsv-pim-api-sdk",
     "license": "MIT",
     "authors": [
         {
-            "name": ":author_name",
-            "email": "author@domain.com",
+            "name": "Amir Khan",
+            "email": "amir@adaptagency.com",
             "role": "Developer"
         }
     ],
     "require": {
-        "php": "^8.0"
+        "php": "^8.0",
+        "juststeveking/laravel-transporter": "^0.9.1"
     },
     "require-dev": {
         "friendsofphp/php-cs-fixer": "^3.0",
@@ -25,12 +26,12 @@
     },
     "autoload": {
         "psr-4": {
-            "VendorName\\Skeleton\\": "src"
+            "Adapt\\PimApi\\": "src"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "VendorName\\Skeleton\\Tests\\": "tests"
+            "Adapt\\PimApi\\Tests\\": "tests"
         }
     },
     "scripts": {
@@ -41,6 +42,16 @@
     },
     "config": {
         "sort-packages": true
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Adapt\\PimApi\\PimApiProviderServiceProvider"
+            ],
+            "aliases": {
+                "PimApiProvider": "Adaptdk\\PimApi\\Facades\\GPimApiProvider"
+            }
+        }
     },
     "minimum-stability": "dev",
     "prefer-stable": true
