@@ -2,12 +2,23 @@
 
 namespace Adaptdk\PimApi\Controllers;
 
+use Adaptdk\PimApi\Events\ProductCreated;
+use Adaptdk\PimApi\Events\ProductDeleted;
+use Adaptdk\PimApi\Events\ProductUpdated;
+use Adaptdk\PimApi\Middleware\CheckWebhook;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Illuminate\Routing\Controller;
 
 class WebhookController extends Controller
 {
+    /**
+     * @var string[]
+     */
+    protected $middleware = [
+        CheckWebhook::class
+    ];
+
     /**
      * Subscribe to the webhook
      *
@@ -21,9 +32,9 @@ class WebhookController extends Controller
             }
 
             return match (data_get($event, 'action')) {
-                'product.updated' => event(),
-                'product.created' => event(),
-                'product.removed' => event(),
+                'product.updated' => event(new ProductUpdated($event)),
+                'product.created' => event(new ProductCreated($event)),
+                'product.removed' => event(new ProductDeleted($event)),
             };
         });
 
