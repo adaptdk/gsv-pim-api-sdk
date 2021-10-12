@@ -46,10 +46,10 @@
     "extra": {
         "laravel": {
             "providers": [
-                "Adapt\\PimApi\\PimApiProviderServiceProvider"
+                "Adapt\\PimApi\\PimApiServiceProvider"
             ],
             "aliases": {
-                "PimApiProvider": "Adaptdk\\PimApi\\Facades\\GPimApiProvider"
+                "PimApiProvider": "Adaptdk\\PimApi\\Facades\\PimApiProvider"
             }
         }
     },
