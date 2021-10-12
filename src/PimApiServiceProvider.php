@@ -2,6 +2,7 @@
 
 namespace Adaptdk\PimApi;
 
+use Illuminate\Support\Facades\Route;
 use Illuminate\Support\ServiceProvider;
 
 class PimApiServiceProvider extends ServiceProvider
@@ -13,6 +14,8 @@ class PimApiServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        $this->loadRoutesFrom(__DIR__.'/routes/api.php');
+        Route::prefix('api')
+            ->middleware('api')
+            ->group(__DIR__.'/routes/api.php');
     }
 }
