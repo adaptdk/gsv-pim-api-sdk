@@ -12,7 +12,7 @@ class BasePimService extends Request
     {
         parent::__construct($http);
 
-        $this->setBaseUrl(config('services.pim_api.base'));
+        $this->setBaseUrl(config('base'));
         $this->request->withMiddleware(new TokenMiddleware($this));
     }
 

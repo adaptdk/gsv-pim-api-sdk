@@ -42,11 +42,11 @@ class TokenMiddleware
         if (! Cache::has('pim_api_token')) {
             $response = Http::withHeaders([
                 'content-type' => 'application/json',
-            ])->post(config('services.pim_api.audience_auth_endpoint'), [
-                'client_id' => config('services.pim_api.client_id'),
-                'client_secret' => config('services.pim_api.client_secret'),
-                'audience' => config('services.pim_api.audience_api_endpoint'),
-                'grant_type' => config('services.pim_api.grant_type'),
+            ])->post(config('audience_auth_endpoint'), [
+                'client_id' => config('client_id'),
+                'client_secret' => config('client_secret'),
+                'audience' => config('audience_api_endpoint'),
+                'grant_type' => config('grant_type'),
             ]);
             $data = $response->collect();
             Cache::put('pim_api_token', $data->get('access_token'), $data->get('expires_in'));

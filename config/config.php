@@ -25,5 +25,8 @@ return [
     ),
     'grant_type' => env('AUTH0_PIM_API_GRANT_TYPE'),
     'base' => env('GSV_PIM_API'),
-    'lang' => explode(',', env('GSV_PIM_API', 'da_DK, en_US')) ?? []
+    'lang' => explode(',', env('GSV_PIM_API', 'da_DK, en_US')) ?? [],
+    'webhook' => [
+        'secret' => env('WEBHOOK_SECRET')
+    ]
 ];
