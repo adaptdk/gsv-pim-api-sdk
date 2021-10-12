@@ -19,6 +19,7 @@ class BasePimService extends Request
     public function withPath(array $pathVariable): static
     {
         $this->setPath(vsprintf($this->path, $pathVariable));
+
         return $this;
     }
 }
