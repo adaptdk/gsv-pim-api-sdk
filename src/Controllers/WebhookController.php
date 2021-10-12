@@ -16,7 +16,7 @@ class WebhookController extends Controller
      * @var string[]
      */
     protected $middleware = [
-        CheckWebhook::class
+        CheckWebhook::class,
     ];
 
     /**

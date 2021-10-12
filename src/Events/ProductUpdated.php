@@ -8,7 +8,9 @@ use Illuminate\Queue\SerializesModels;
 
 class ProductUpdated
 {
-    use Dispatchable, InteractsWithSockets, SerializesModels;
+    use Dispatchable;
+    use InteractsWithSockets;
+    use SerializesModels;
 
     /**
      * The event instance
