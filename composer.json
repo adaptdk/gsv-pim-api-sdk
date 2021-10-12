@@ -26,12 +26,12 @@
     },
     "autoload": {
         "psr-4": {
-            "Adapt\\PimApi\\": "src"
+            "Adaptdk\\PimApi\\": "src"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "Adapt\\PimApi\\Tests\\": "tests"
+            "Adaptdk\\PimApi\\Tests\\": "tests"
         }
     },
     "scripts": {
@@ -46,7 +46,7 @@
     "extra": {
         "laravel": {
             "providers": [
-                "Adapt\\PimApi\\PimApiServiceProvider"
+                "Adaptdk\\PimApi\\PimApiServiceProvider"
             ],
             "aliases": {
                 "PimApiProvider": "Adaptdk\\PimApi\\Facades\\PimApiProvider"

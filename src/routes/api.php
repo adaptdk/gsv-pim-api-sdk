@@ -5,4 +5,4 @@
 | Webhook route
 |--------------------------------------------------------------------------
 */
-Route::post('/notification/pim/webhook', '\App\Http\Controllers\WebhookController@subscribe');
+Route::post('/notification/pim/webhook', 'Adaptdk\PimApi\Controllers\WebhookController@subscribe');

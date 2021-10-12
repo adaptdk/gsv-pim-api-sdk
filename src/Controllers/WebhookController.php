@@ -1,6 +1,6 @@
 <?php
 
-namespace Adapt\PimApi\Controllers;
+namespace Adaptdk\PimApi\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;

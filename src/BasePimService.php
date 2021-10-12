@@ -1,8 +1,8 @@
 <?php
 
-namespace Adapt\PimApi;
+namespace Adaptdk\PimApi;
 
-use Adapt\PimApi\Middleware\TokenMiddleware;
+use Adaptdk\PimApi\Middleware\TokenMiddleware;
 use Illuminate\Http\Client\Factory as HttpFactory;
 use JustSteveKing\Transporter\Request;
 

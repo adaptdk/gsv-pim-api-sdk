@@ -1,6 +1,6 @@
 <?php
 
-namespace Adapt\PimApi\Contracts;
+namespace Adaptdk\PimApi\Contracts;
 
 interface BasePimService
 {

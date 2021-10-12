@@ -1,6 +1,6 @@
 <?php
 
-namespace Adapt\PimApi\Middleware;
+namespace Adaptdk\PimApi\Middleware;
 
 use GuzzleHttp\Psr7\Request;
 use Illuminate\Support\Facades\Cache;

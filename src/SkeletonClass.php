@@ -1,6 +1,6 @@
 <?php
 
-namespace Adapt\PimApi;
+namespace Adaptdk\PimApi;
 
 class PimApiClass
 {

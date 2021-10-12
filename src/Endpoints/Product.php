@@ -1,8 +1,8 @@
 <?php
 
-namespace Adapt\PimApi\Endpoints;
+namespace Adaptdk\PimApi\Endpoints;
 
-use Adapt\PimApi\BasePimService;
+use Adaptdk\PimApi\BasePimService;
 use Illuminate\Http\Client\Response;
 
 class Product extends BasePimService
