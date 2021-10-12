@@ -3,12 +3,11 @@
 namespace Adapt\PimApi\Endpoints;
 
 use Adapt\PimApi\BasePimService;
-use \Illuminate\Http\Client\Response;
-use Illuminate\Support\Facades\Log;
+use Illuminate\Http\Client\Response;
 
 class Product extends BasePimService
 {
-    public function get(string $code) : Response
+    public function get(string $code): Response
     {
         $this->method = 'GET';
         $this->path = '/v1/products/%s';
@@ -16,7 +15,7 @@ class Product extends BasePimService
         return $this->withPath([$code])->send();
     }
 
-    public function paginate(int $page = 1) : Response
+    public function paginate(int $page = 1): Response
     {
         $this->method = 'GET';
         $this->path = '/v1/products';
@@ -26,33 +25,35 @@ class Product extends BasePimService
                 "categories" => [
                     [
                         "operator" => "IN CHILDREN",
-                        "value" => ["master"]
-                    ]
+                        "value" => ["master"],
+                    ],
 
-                ]
+                ],
             ],
             'page' => $page,
-            'limit' => 100
+            'limit' => 100,
         ])->send();
     }
 
-    public function store(array $data = []) : Response
+    public function store(array $data = []): Response
     {
         $this->method = 'POST';
         $this->path = '/v1/products';
         $data = $this->injectPimData($data);
+
         return $this->withData($data)->send();
     }
 
-    public function update(string $id, array $data = []) : Response
+    public function update(string $id, array $data = []): Response
     {
         $this->method = 'PATCH';
         $this->path = '/v1/products/%s';
         $data = $this->injectPimData($data);
+
         return $this->withPath([$id])->withData($data)->send();
     }
 
-    public function destroy(string $id) : Response
+    public function destroy(string $id): Response
     {
         $this->method = 'DELETE';
         $this->path = '/v1/products/%s';
