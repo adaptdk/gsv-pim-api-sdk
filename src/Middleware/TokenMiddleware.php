@@ -42,11 +42,11 @@ class TokenMiddleware
         if (! Cache::has('pim_api_token')) {
             $response = Http::withHeaders([
                 'content-type' => 'application/json',
-            ])->post(config('audience_auth_endpoint'), [
-                'client_id' => config('client_id'),
-                'client_secret' => config('client_secret'),
-                'audience' => config('audience_api_endpoint'),
-                'grant_type' => config('grant_type'),
+            ])->post(config('gsv-pim-api.audience_auth_endpoint'), [
+                'client_id' => config('gsv-pim-api.client_id'),
+                'client_secret' => config('gsv-pim-api.client_secret'),
+                'audience' => config('gsv-pim-api.audience_api_endpoint'),
+                'grant_type' => config('gsv-pim-api.grant_type'),
             ]);
             $data = $response->collect();
             Cache::put('pim_api_token', $data->get('access_token'), $data->get('expires_in'));

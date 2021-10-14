@@ -23,7 +23,7 @@ class CheckWebhook
         $signedPayload = $request->getContent();
 
         // Generate a hash signature.
-        $generatedSignature = hash_hmac("sha256", $signedPayload, config('webhook.secret'));
+        $generatedSignature = hash_hmac("sha256", $signedPayload, config('gsv-pim-api.webhook.secret'));
 
         // Compare the original and generated signature.
         if (!hash_equals($request->headers->get('signature'), $generatedSignature)) {

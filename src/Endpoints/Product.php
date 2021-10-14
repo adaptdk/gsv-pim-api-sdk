@@ -15,12 +15,11 @@ class Product extends BasePimService
         return $this->withPath([$code])->send();
     }
 
-    public function paginate(int $page = 1): Response
+    public function paginate(int $page = 1, $query = []): Response
     {
         $this->method = 'GET';
         $this->path = '/v1/products';
-
-        return $this->withQuery([
+        $baseQuery = [
             'search' => [
                 "categories" => [
                     [
@@ -32,14 +31,20 @@ class Product extends BasePimService
             ],
             'page' => $page,
             'limit' => 100,
-        ])->send();
+        ];
+
+        collect($query)->each(function ($value, $key) use (&$baseQuery) {
+            $baseQuery['search'][$key] = $value;
+        });
+
+
+        return $this->withQuery($baseQuery)->send();
     }
 
     public function store(array $data = []): Response
     {
         $this->method = 'POST';
         $this->path = '/v1/products';
-        $data = $this->injectPimData($data);
 
         return $this->withData($data)->send();
     }
@@ -48,7 +53,6 @@ class Product extends BasePimService
     {
         $this->method = 'PATCH';
         $this->path = '/v1/products/%s';
-        $data = $this->injectPimData($data);
 
         return $this->withPath([$id])->withData($data)->send();
     }
@@ -61,8 +65,9 @@ class Product extends BasePimService
         return $this->withPath([$id])->send();
     }
 
-    public function injectPimData($data = [])
+    public function search(array $data)
     {
-        return array_merge($data, ['family' => 'kundeportal']);
+        $this->method = 'GET';
+        $this->path = '/v1/products/%s';
     }
 }
