@@ -12,6 +12,7 @@ class PimApiServiceProvider extends ServiceProvider
         // Register the config values
         $this->mergeConfigFrom(__DIR__ . '/../config/config.php', 'gsv-pim-api');
     }
+
     /**
      * Bootstrap any package services.
      *
