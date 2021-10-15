@@ -7,7 +7,7 @@ use Illuminate\Http\Client\Response;
 
 class Product extends BasePimService
 {
-    public function get(string $code): Response
+    public function get(string $code) : Response
     {
         $this->method = 'GET';
         $this->path = '/v1/products/%s';
@@ -15,11 +15,12 @@ class Product extends BasePimService
         return $this->withPath([$code])->send();
     }
 
-    public function paginate(int $page = 1, $query = []): Response
+    public function paginate(int $page = 1) : Response
     {
         $this->method = 'GET';
         $this->path = '/v1/products';
-        $baseQuery = [
+
+        return $this->withQuery([
             'search' => [
                 "categories" => [
                     [
@@ -31,17 +32,10 @@ class Product extends BasePimService
             ],
             'page' => $page,
             'limit' => 100,
-        ];
-
-        collect($query)->each(function ($value, $key) use (&$baseQuery) {
-            $baseQuery['search'][$key] = $value;
-        });
-
-
-        return $this->withQuery($baseQuery)->send();
+        ])->send();
     }
 
-    public function store(array $data = []): Response
+    public function store(array $data = []) : Response
     {
         $this->method = 'POST';
         $this->path = '/v1/products';
@@ -49,7 +43,7 @@ class Product extends BasePimService
         return $this->withData($data)->send();
     }
 
-    public function update(string $id, array $data = []): Response
+    public function update(string $id, array $data = []) : Response
     {
         $this->method = 'PATCH';
         $this->path = '/v1/products/%s';
@@ -57,7 +51,7 @@ class Product extends BasePimService
         return $this->withPath([$id])->withData($data)->send();
     }
 
-    public function destroy(string $id): Response
+    public function destroy(string $id) : Response
     {
         $this->method = 'DELETE';
         $this->path = '/v1/products/%s';
@@ -65,9 +59,16 @@ class Product extends BasePimService
         return $this->withPath([$id])->send();
     }
 
-    public function search(array $data)
+    public function search(array $data = [], int $page = 1, int $limit = 100)
     {
         $this->method = 'GET';
-        $this->path = '/v1/products/%s';
+        $this->path = '/v1/products/';
+
+        $data = array_merge($data, [
+            'page' => $page,
+            'limit' => $limit,
+        ]);
+
+        return $this->withQuery($data)->send();
     }
 }
