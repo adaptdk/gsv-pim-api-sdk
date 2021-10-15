@@ -15,7 +15,7 @@ class Product extends BasePimService
         return $this->withPath([$code])->send();
     }
 
-    public function paginate(int $page = 1) : Response
+    public function paginate(int $page = 1, int $limit = 10) : Response
     {
         $this->method = 'GET';
         $this->path = '/v1/products';
@@ -31,7 +31,7 @@ class Product extends BasePimService
                 ],
             ],
             'page' => $page,
-            'limit' => 100,
+            'limit' => $limit,
         ])->send();
     }
 
