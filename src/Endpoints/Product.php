@@ -7,7 +7,7 @@ use Illuminate\Http\Client\Response;
 
 class Product extends BasePimService
 {
-    public function get(string $code) : Response
+    public function get(string $code): Response
     {
         $this->method = 'GET';
         $this->path = '/v1/products/%s';
@@ -15,7 +15,7 @@ class Product extends BasePimService
         return $this->withPath([$code])->send();
     }
 
-    public function paginate(int $page = 1) : Response
+    public function paginate(int $page = 1): Response
     {
         $this->method = 'GET';
         $this->path = '/v1/products';
@@ -35,7 +35,7 @@ class Product extends BasePimService
         ])->send();
     }
 
-    public function store(array $data = []) : Response
+    public function store(array $data = []): Response
     {
         $this->method = 'POST';
         $this->path = '/v1/products';
@@ -43,7 +43,7 @@ class Product extends BasePimService
         return $this->withData($data)->send();
     }
 
-    public function update(string $id, array $data = []) : Response
+    public function update(string $id, array $data = []): Response
     {
         $this->method = 'PATCH';
         $this->path = '/v1/products/%s';
@@ -51,7 +51,7 @@ class Product extends BasePimService
         return $this->withPath([$id])->withData($data)->send();
     }
 
-    public function destroy(string $id) : Response
+    public function destroy(string $id): Response
     {
         $this->method = 'DELETE';
         $this->path = '/v1/products/%s';
