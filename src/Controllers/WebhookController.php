@@ -5,7 +5,6 @@ namespace Adaptdk\PimApi\Controllers;
 use Adaptdk\PimApi\Events\ProductCreated;
 use Adaptdk\PimApi\Events\ProductDeleted;
 use Adaptdk\PimApi\Events\ProductUpdated;
-use Adaptdk\PimApi\Middleware\CheckWebhook;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Illuminate\Routing\Controller;
