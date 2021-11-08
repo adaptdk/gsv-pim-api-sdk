@@ -13,11 +13,12 @@ use Illuminate\Routing\Controller;
 class WebhookController extends Controller
 {
     /**
-     * @var string[]
+     * Constructor
      */
-    protected $middleware = [
-        CheckWebhook::class,
-    ];
+    public function __construct()
+    {
+        $this->middleware('webhook');
+    }
 
     /**
      * Subscribe to the webhook
