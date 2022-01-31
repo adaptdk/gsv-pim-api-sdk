@@ -13,7 +13,7 @@ class BasePimService extends Request
         parent::__construct($http);
 
         $this->setBaseUrl(config('gsv-pim-api.base'));
-        $this->request->withMiddleware(new TokenMiddleware($this));
+//        $this->request->withMiddleware(new TokenMiddleware($this));
     }
 
     public function withPath(array $pathVariable): static
